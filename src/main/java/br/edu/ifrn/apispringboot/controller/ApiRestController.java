@@ -19,9 +19,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("api")
 public class ApiRestController {
 
-    @GetMapping("/")
+    @GetMapping
     public ResponseEntity<?> api(){
-        return new ResponseEntity("Teste", HttpStatus.OK);
+        return new ResponseEntity("api-v1", HttpStatus.OK);
     }
     
 }
