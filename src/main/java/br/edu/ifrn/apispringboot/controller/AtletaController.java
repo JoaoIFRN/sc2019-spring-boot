@@ -33,7 +33,7 @@ public class AtletaController {
     
     @GetMapping
     public ResponseEntity<?> listarAtletas(){
-        return ResponseEntity.ok(atletaRepository.findAll());        
+        return ResponseEntity.ok(atletaRepository.findAllOrderByNome());        
     }
     
     @PostMapping

@@ -6,6 +6,7 @@
 package br.edu.ifrn.apispringboot.repository;
 
 import br.edu.ifrn.apispringboot.model.Atleta;
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -16,5 +17,6 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface AtletaRepository extends JpaRepository<Atleta, Long>{
-    
+    @Query("from Atleta a order by a.nome")
+    List<Atleta> findAllOrderByNome();
 }
