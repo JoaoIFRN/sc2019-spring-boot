@@ -7,7 +7,7 @@ package br.edu.ifrn.apispringboot.controller;
 
 import br.edu.ifrn.apispringboot.model.Atleta;
 import br.edu.ifrn.apispringboot.repository.AtletaRepository;
-import javax.transaction.Transactional;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,8 +36,7 @@ public class AtletaController {
     }
     
     @PostMapping
-    @Transactional
-    public ResponseEntity<?> salvarAtleta(@RequestBody Atleta atleta){
+    public ResponseEntity<?> salvarAtleta(@RequestBody @Valid Atleta atleta) {
         atletaRepository.save(atleta);
         return new ResponseEntity(HttpStatus.CREATED);        
     }
