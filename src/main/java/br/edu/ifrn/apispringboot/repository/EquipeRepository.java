@@ -14,6 +14,6 @@ import org.springframework.stereotype.Repository;
  * @author joaon
  */
 @Repository
-public interface EquipeRepository extends JpaRepository<Equipe, Long>{
-    
+public interface EquipeRepository extends JpaRepository<Equipe, Long> {
+
 }

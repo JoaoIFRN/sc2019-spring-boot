@@ -16,7 +16,8 @@ import org.springframework.stereotype.Repository;
  * @author joaon
  */
 @Repository
-public interface AtletaRepository extends JpaRepository<Atleta, Long>{
+public interface AtletaRepository extends JpaRepository<Atleta, Long> {
+
     @Query("from Atleta a order by a.nome")
     List<Atleta> findAllOrderByNome();
 }

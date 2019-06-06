@@ -18,12 +18,12 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Atleta {
 
-   @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
-   private Long id;
-   private String nome;
-   @ManyToOne
-   private Equipe equipe;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String nome;
+    @ManyToOne
+    private Equipe equipe;
 
     /**
      * @return the id
@@ -66,6 +66,5 @@ public class Atleta {
     public void setEquipe(Equipe equipe) {
         this.equipe = equipe;
     }
-   
-   
+
 }

@@ -11,8 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-
-
+import javax.validation.constraints.NotBlank;
 
 /**
  *
@@ -20,10 +19,11 @@ import javax.persistence.OneToMany;
  */
 @Entity
 public class Equipe {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotBlank(message = "Não é possível cadastrar equipe  sem nome")
     private String nome;
     @OneToMany(mappedBy = "equipe")
     private List<Atleta> atletas;
@@ -55,7 +55,5 @@ public class Equipe {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    
-    
-    
+
 }
