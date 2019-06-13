@@ -11,6 +11,8 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -34,7 +36,8 @@ public class AtletaController {
     }
     
     @PostMapping        
-    public ResponseEntity<?> salvarAtleta(@RequestBody @Valid Atleta atleta) {
+    public ResponseEntity<?> salvarAtleta(@RequestBody @Valid Atleta atleta, @AuthenticationPrincipal UserDetails userDetails) {
+        System.out.println(userDetails.getUsername());
         atletaService.save(atleta);
         return new ResponseEntity(HttpStatus.CREATED);        
     }
